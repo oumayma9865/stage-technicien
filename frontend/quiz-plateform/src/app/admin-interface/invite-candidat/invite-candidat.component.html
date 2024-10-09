@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="main-content">
+    <app-navbar-admin class="navbar-custom"></app-navbar-admin>
+    <div class="content">
+      <div class="invite-container">
+        <h4>Inviter des candidats</h4>
+        <div class="users-list-container">
+          <ul class="users-list">
+            <li *ngFor="let user of filteredUsers">
+              <input type="checkbox" [value]="user.email" (change)="toggleEmail(user.email)" />
+              {{ user.email }}
+            </li>
+          </ul>
+        </div>
+        <button class="invite-button" (click)="invite()">Inviter</button>
+      </div>
+    </div>
+  </div>
+</div>

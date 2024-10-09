@@ -1,0 +1,37 @@
+<div class="wrapper" >
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="main-content">
+    <app-navbar-admin class="navbar-custom" ></app-navbar-admin>
+    <div class="content">
+      <div class="results-container">
+        <!-- Navigation pour revenir à la liste des tests -->
+        <div class="navigation chevron-left" *ngIf="selectedTest" (click)="backToTests()">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+
+        <!-- Liste des tests -->
+        <div class="tests-list" *ngIf="!selectedTest">
+          <h2><i class="fas fa-chart-bar"></i> Résultats</h2>
+          <div class="test-card" *ngFor="let test of tests" (click)="selectTest(test)">
+            <h3>{{ test.titre }}</h3>
+            <p>{{ test.date | date: 'dd-MM-yyyy' }}</p>
+          </div>
+        </div>
+
+        <!-- Liste des candidats pour le test sélectionné -->
+        <div class="candidates-container" *ngIf="selectedTest">
+          <div class="candidates-list">
+            <div class="candidate-card" *ngFor="let result of testResults; let i = index">
+              <div class="candidate-rank">{{ i + 1 }}</div>
+              <div class="candidate-info">
+                <h4>{{ result.user.username }}</h4>
+                <p>Score: {{ result.score }}%</p>
+                <p>Temps passé: {{ result.tempspasse }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

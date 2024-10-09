@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s;
+  background-color: #edebeb;
+  max-height: auto;
+}
+
+.main-content .content {
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+}
+
+.invite-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+h4 {
+  text-align: center;
+}
+
+/* Styles for the users list container */
+.users-list-container {
+  margin-top: 4%;
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto; /* Adds vertical scrollbar */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.users-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.users-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd; /* Add a line after each email */
+  padding-bottom: 10px;
+}
+
+.users-list li:last-child {
+  border-bottom: none; /* Remove the line after the last item */
+}
+
+.users-list input[type="checkbox"] {
+  margin-right: 15px;
+}
+
+.invite-button {
+  padding: 12px 20px;
+  margin-top: 4%;
+  margin-left: 86%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.invite-button:hover {
+  background-color: #0056b3;
+}

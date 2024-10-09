@@ -1,0 +1,69 @@
+<div class="wrapper" >
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="main-content">
+    <app-navbar-admin class="navbar-custom" ></app-navbar-admin>
+    <div class="add-test-container">
+      <h2><i class="fas fa-tasks"></i>Créer un nouveau test</h2>
+      <div class="content">
+        <div class="section1">
+          <h5>1. Nom du test</h5>
+          <div class="test-name-input">
+            <input type="text" placeholder="Entrez le nom du test" style="font-size: 16px;" [(ngModel)]="testName">
+          </div>
+        </div>
+        <div class="section">
+          <h5>2. Quel rôle souhaitez-vous tester ?</h5>
+          <div class="role-options">
+            <div class="role-option" *ngFor="let role of roles" (click)="selectRole(role)"
+              [ngClass]="{'selected': selectedRole === role}">
+              <div class="role-card">
+                <div class="role-name">{{ role }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h5>3. Quelle est l'expérience requise ?</h5>
+          <div class="experience-options">
+            <div class="option">
+              <input type="radio" id="junior" name="experience" value="Junior" [(ngModel)]="selectedExperience">
+              <label for="junior">Junior 1-3 ans</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="senior" name="experience" value="Senior" [(ngModel)]="selectedExperience">
+              <label for="senior">Senior 3-5 ans</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="expert" name="experience" value="Expert" [(ngModel)]="selectedExperience">
+              <label for="expert">Expert +5 ans</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h5>4. Quelles sont les compétences ?</h5>
+          <div class="skill-options">
+            <div class="skill-option" *ngFor="let skill of displayedSkills" (click)="selectSkill(skill)"
+              [ngClass]="{'selected': selectedSkills.includes(skill)}">
+              <div class="skill-card">
+                <div class="skill-name">{{ skill.skill }}  
+                  <i class="fas" [ngClass]="{'fa-plus': !selectedSkills.includes(skill), 'fa-times': selectedSkills.includes(skill)}" 
+                     [style.color]="selectedSkills.includes(skill) ? 'white' : '#1B75BC'" style="margin-left: 20px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher une compétence" [(ngModel)]="searchQuery" (input)="searchSkill()">
+          </div>
+        </div>
+
+        <div class="next-step">
+          <button (click)="createTest()">Créer le test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

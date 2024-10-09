@@ -1,0 +1,233 @@
+/* Styles de base */
+.wrapper {
+  display: flex;
+  height: max-content;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s;
+  background-color: #edebeb;
+  height: auto;
+}
+
+.main-content .content {
+  margin-left: 250px; /* Même largeur que la sidebar par défaut */
+  transition: margin-left 0.3s;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.search {
+  margin-top: 2%;
+  display: flex;
+  width: 70%;
+  height: 40px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #bebdbd;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search i {
+  color: #1B75BC;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+.search button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search button i {
+  font-size: 1.2em;
+  color: #1B75BC;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+.search button:focus {
+  outline: none;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.new-quiz-btn {
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 1%;
+  width: 20%;
+}
+
+.new-quiz-btn i {
+  margin-right: 20px;
+}
+
+.table {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #61AAE4;
+}
+
+.table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table tbody tr {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.table tbody tr:hover {
+  transform: scale(1.02);
+  background-color: #edeff0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-left: 26%;
+}
+
+.actions .btn {
+  margin-left: 10px;
+}
+
+.actions .btn i {
+  color: #000;
+}
+
+
+/* Media Queries */
+
+@media (min-width: 1425px) and (max-width: 2024px){
+  .sidebar {
+    width: 300px; /* Largeur standard pour les grands écrans */
+  }
+
+  .main-content .content {
+    margin-left: 350px; 
+  }
+  .new-quiz-btn {
+    width: 20%;
+    margin-left: 300px;
+    text-align: center;
+  }
+
+}
+/* Pour les grands écrans (plus de 1024px) */
+@media (min-width: 1025px) and (max-width: 1424px){
+  .sidebar {
+    width: 300px; /* Largeur standard pour les grands écrans */
+  }
+
+  .main-content .content {
+    margin-left: 250px; 
+   
+    
+  }
+}
+
+/* Pour les écrans entre 769px et 1024px */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar {
+    width: 220px; /* Sidebar un peu plus étroite */
+  }
+
+  .main-content .content {
+    margin-left: 220px; /* Marge ajustée */
+  }
+
+  .search {
+    width: 65%; /* Réduction de la largeur de la barre de recherche */
+  }
+
+  .new-test-btn {
+    width: 25%; /* Augmentation de la largeur du bouton */
+  }
+
+  .actions {
+    margin-left: 20%; /* Réduction de la marge */
+  }
+}
+
+/* Pour les écrans entre 577px et 768px */
+@media (max-width: 768px) and (min-width: 577px) {
+  .sidebar {
+    width: 200px; /* Sidebar plus étroite */
+  }
+
+  .main-content .content {
+    margin-left: 200px; /* Marge ajustée */
+  }
+
+  .search {
+    width: 60%; /* Réduction de la largeur de la barre de recherche */
+  }
+
+  .new-test-btn {
+    width: 30%; /* Augmentation de la largeur du bouton */
+  }
+
+  .actions {
+    margin-left: 15%; /* Réduction de la marge */
+  }
+}
+
+/* Pour les petits écrans (576px et moins) */
+@media (max-width: 576px) {
+  .sidebar {
+    width: 150px; /* Sidebar encore plus étroite */
+  }
+
+  .main-content .content {
+    margin-left: 150px; /* Marge ajustée */
+  }
+
+  .search {
+    width: 100%; /* La barre de recherche prend toute la largeur */
+  }
+
+  .new-test-btn {
+    width: 100%; /* Le bouton prend toute la largeur */
+    margin-top: 10px; /* Ajout d'un espace au-dessus */
+  }
+
+  .actions {
+    margin-left: 0; /* Pas de marge */
+    justify-content: center; /* Centrer les actions */
+  }
+}

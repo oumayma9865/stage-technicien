@@ -1,0 +1,73 @@
+<div class="wrapper" >
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="main-content">
+    <app-navbar-admin class="navbar-custom" ></app-navbar-admin>
+    <div class="content">
+      <div class="search-container">
+        <div class="search">
+          <input type="text" placeholder="Recherche d'un quiz" [(ngModel)]="searchTerm" (input)="searchQuizzes()">
+          <i class="fas fa-search"></i>
+          <button (click)="resetSearch()">
+            
+          </button>
+        </div>
+        <button class="new-quiz-btn" [routerLink]="['/addquiz']">
+          <i class="fas fa-plus-circle"></i>
+          Nouveau Quiz
+        </button>
+      </div>
+
+    <br><br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Titre</th>
+              
+              <th scope="col">Compétence</th>
+              <th scope="col" >Difficulté</th>
+              <th scope="col" >Score</th>
+              <th scope="col" >Durée</th>
+              <th scope="col" >Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let quiz of filteredQuizzes; let i = index" (click)="viewQuizDetails(quiz.id)" style="cursor: pointer" >
+              <td>{{ i+1 }}</td>
+              <td>{{ quiz.titre }}</td>
+              <td>{{ quiz.skill.skill }}</td>
+              <td>
+                <ng-container *ngIf="quiz.difficulte === 'Débutant'">
+                  <i class="fas fa-puzzle-piece" style="color: gray;"></i>
+                </ng-container>
+                <ng-container *ngIf="quiz.difficulte === 'Intermédiaire'">
+                  <i class="fas fa-puzzle-piece" style="color: gray;"></i>
+                  <i class="fas fa-puzzle-piece" style="color: gray;"></i>
+                </ng-container>
+                <ng-container *ngIf="quiz.difficulte === 'Avancé'">
+                  <i class="fas fa-puzzle-piece" style="color: gray;"></i>
+                  <i class="fas fa-puzzle-piece" style="color: gray;"></i>
+                  <i class="fas fa-puzzle-piece" style="color: gray;"></i>
+                </ng-container>
+              </td>
+              
+              <td>{{ quiz.score }}</td>
+              <td>{{ quiz.temps }}</td>
+              <td>
+                
+                  <div class="trash" (click)="$event.stopPropagation()">
+                    <ul>
+                      <button class="btn btn-light btn-sm" (click)="deleteQuiz(quiz.id)">
+                        <i class="fas fa-trash-alt"></i> 
+                      </button>
+                    </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       
+      </div>
+    </div>
+  </div>
+

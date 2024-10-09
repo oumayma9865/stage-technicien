@@ -1,0 +1,30 @@
+<body style="background-color: #edebeb;">
+  <div class="test-container">
+    <div class="header" *ngIf="!isTestCompleted">
+      <div class="question-number">{{ globalQuestionIndex + 1 }}/{{ totalQuestions }}</div>
+      <div class="timer">
+        <i class="fas fa-clock"></i> {{ remainingTime }}
+      </div>
+    </div>
+    <div *ngIf="!isTestCompleted && currentQuizIndex < quizzes.length && currentQuestionIndex < questions.length" class="question">
+      <h3>{{ questions[currentQuestionIndex].question }}</h3>
+      <ul>
+        <li *ngFor="let option of questions[currentQuestionIndex]?.options; let j = index"
+            [class.correct]="showAnswer && option.correct"
+            [class.incorrect]="showAnswer && !option.correct && option.id === selectedOption">
+          <label>
+            <input
+              type="radio"
+              name="question{{ currentQuestionIndex }}"
+              [value]="option.id"
+              [(ngModel)]="selectedOption"
+              [disabled]="showAnswer"
+            />
+            {{ option.texte }}
+          </label>
+        </li>
+      </ul>
+      <button (click)="submitAnswer()" [disabled]="selectedOption === null || showAnswer">Submit</button>
+    </div>
+  </div>
+</body>

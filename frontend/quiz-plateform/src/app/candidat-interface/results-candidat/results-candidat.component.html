@@ -1,0 +1,23 @@
+<div class="results-wrapper">
+  <div class="results-container">
+    <div class="back-icon" (click)="goHome()">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="final-score">
+      <h3>Score Final</h3>
+      <div class="score">{{ testResult.score }}%</div>
+      <p>Temps Passé: {{ testResult.tempspasse }}</p>
+      <!-- Additional information -->
+      <div class="details">
+        <p>Nombre de Questions: {{ testResult.totalQuestion }}</p>
+        <p>Réponses Correctes: {{ testResult.correctAnswers }}</p>
+      </div>
+      <!-- Feedback based on score -->
+      <div class="feedback">
+        <p *ngIf="testResult.score >= 80">Excellent travail! Vous avez bien maîtrisé le sujet.</p>
+        <p *ngIf="testResult.score >= 50 && testResult.score < 80">Bon travail, mais il y a encore des domaines à améliorer.</p>
+        <p *ngIf="testResult.score < 50">Il est conseillé de revoir les concepts pour améliorer vos résultats.</p>
+      </div>
+    </div>
+  </div>
+</div>

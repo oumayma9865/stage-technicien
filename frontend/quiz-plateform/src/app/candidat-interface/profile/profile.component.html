@@ -1,0 +1,93 @@
+<div class="wrapper">
+    <div class="content">
+        <div class="profile-details-container">
+            <div class="back-icon" (click)="goHome()">
+                <i class="fas fa-chevron-left"></i>
+              </div>
+          <h4>Détails du Profil</h4>
+  
+          <!-- Username -->
+          <div class="profile-detail">
+            <label>Nom d'utilisateur:</label>
+            
+              <div >
+                <span>{{ currentUser.username }}</span>
+               
+              </div>
+            
+          </div>
+  
+          <!-- Email -->
+          <div class="profile-detail">
+            <label>Email:</label>
+            <ng-container *ngIf="editMode === 'email'; else staticTextEmail">
+              <input type="email" [(ngModel)]="editedField.email" (keydown.enter)="saveField('email')">
+              <button (click)="saveField('email')">Sauvegarder</button>
+            </ng-container>
+            <ng-template #staticTextEmail>
+              <div class="edit">
+                <span>{{ currentUser.email }}</span>
+                <button (click)="enterEditMode('email')"><i class="fas fa-edit"></i></button>
+              </div>
+            </ng-template>
+          </div>
+  
+          <!-- Phone -->
+          <div class="profile-detail">
+            <label>Téléphone:</label>
+            <ng-container *ngIf="editMode === 'phone'; else staticTextPhone">
+              <input type="tel" [(ngModel)]="editedField.phone" (keydown.enter)="saveField('phone')">
+              <button (click)="saveField('phone')">Sauvegarder</button>
+            </ng-container>
+            <ng-template #staticTextPhone>
+              <div class="edit">
+                <span>{{ currentUser.phone }}</span>
+                <button (click)="enterEditMode('phone')"><i class="fas fa-edit"></i></button>
+              </div>
+            </ng-template>
+          </div>
+  
+          <!-- Change Password -->
+          <div class="profile-detail">
+            <label>Changer le mot de passe:</label>
+            <div>
+              <div class="password-container">
+                <input type="password" [(ngModel)]="editedField.newPassword" placeholder="Nouveau mot de passe" id="password" >
+                <i class="fas fa-eye eye-icon" (click)="togglePasswordVisibility('password')"></i>
+              </div>
+              <br>
+              <div class="password-container">
+                <input type="password" [(ngModel)]="editedField.confirmPassword" placeholder="Confirmer le mot de passe" id="confirmPassword">
+                <i class="fas fa-eye eye-icon" (click)="togglePasswordVisibility('confirmPassword')"></i>
+              </div>
+              <button class="btn btn-primary" (click)="changePassword()">Changer</button>
+            </div>
+          </div>
+          <div class="profile-detail">
+            <label>CV:</label>
+            <ng-container *ngIf="currentUser.cv; else noFile">
+              <div>
+                <a [href]="getCVUrl(currentUser.cv)" target="_blank">
+                  <button class="btn btn-success btn-sm">
+                    <i class="fas fa-download"></i> Voir CV
+                  </button>
+                </a>
+                <br><br>
+                <input type="file" (change)="onFileChange($event)">
+              </div>
+            </ng-container>
+            <ng-template #noFile>
+              <div>
+                <span>Aucun fichier</span>
+                <input type="file" (change)="onFileChange($event)">
+              </div>
+            </ng-template>
+          </div>
+  
+        </div>
+      </div>
+</div>
+
+   
+
+  

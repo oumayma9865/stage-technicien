@@ -1,0 +1,41 @@
+<div class="navbar">
+  <div class="profile">
+    <div class="profile-circle" [routerLink]="['/profile']" style="cursor: pointer;">
+      <span>{{getInitials(currentUser?.username || '')}}</span>
+    </div>
+    <button class="btn btn-icon" (click)="logout()">
+      <i class="fa fa-sign-out-alt"></i>
+    </button>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h3>Mes Tests</h3>
+  <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Test</th>
+          <th scope="col">Durée</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let test of userTests; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ test.titre }}</td>
+          <td>{{ test.duree }}</td>
+          <td>
+            <ng-container *ngIf="test.status === 'Non passé'">
+              <button class="btn btn-primary" (click)="startTest(test)">Démarrer</button>
+            </ng-container>
+            <ng-container *ngIf="test.status === 'Passé'">
+              <button class="btn btn-success" (click)="viewResults(test)">Voir Résultats</button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

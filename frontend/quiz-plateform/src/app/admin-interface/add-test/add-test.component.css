@@ -1,0 +1,186 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s;
+  background-color: #edebeb;
+  height: max-content;
+}
+
+.add-test-container {
+  max-width: 1050px;
+  margin-left: 20%;
+  margin-top: 2%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-test-container h2 {
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 35px;
+  font-size: 19px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  gap: 10px; /* Adjust spacing between icon and text */
+}
+
+.add-test-container h2 i {
+  font-size: 1em; /* Adjust icon size if needed */
+}
+
+.add-test-container h5 {
+  text-align: left;
+  margin-top: 28px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+}
+
+.test-name-input input {
+  width: 60%;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 8px 0;
+  font-size: 20px;
+  background-color: transparent;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.content {
+  width: 100%;
+}
+
+.section {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.skill-options,
+.role-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-option,
+.role-option {
+  width: calc(20.33% - 15px); /* 3 roles per row with 20px gap */
+  margin-bottom: 15px;
+}
+
+.skill-card,
+.role-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.skill-card:hover,
+.role-card:hover {
+  background-color: #007bff;
+}
+
+.skill-option.selected,
+.role-option.selected {
+  background-color:#007bff;
+  color: white; 
+  border-radius: 8px;
+}
+.skill-option.selected .skill-card .skill-name i {
+  color: white;
+}
+.skill-option .skill-card .skill-name i{
+  color: #1B75BC; 
+  margin-left: 60px;
+}
+
+.role-name {
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.experience-options {
+  display: flex;
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+  margin-right: 39px; /* Adjust spacing between options */
+}
+
+.option input[type="radio"] {
+  font-size: 30px;
+  margin-right: 7px;
+}
+
+.skill-search {
+  margin-top: 2%;
+  margin-left: 13%;
+  display: flex;
+  width: 80%;
+  height: 40px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #bebdbd;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.skill-search i {
+  color: #1B75BC;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+.skill-search input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.next-step {
+  text-align: center;
+}
+
+.next-step button {
+  background-color: #1B75BC;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.next-step button:hover {
+  background-color: #155a8a;
+}
+@media (min-width: 1400px) {
+  .add-test-container {
+    max-width: 1400px; /* Increase width for larger screens */
+  }
+}
+
+/* For very large screens */
+@media (min-width: 1600px) {
+  .add-test-container {
+    max-width: 1600px; /* Further increase width for very large screens */
+  }
+}

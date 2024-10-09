@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="content">
+  <div class="guide-container">
+    <h2>Guide du Test Technique</h2>
+    <p>Bienvenue au test technique <strong>{{ testDetails.titre }}</strong>. Voici quelques informations importantes avant de commencer :</p>
+    <ul>
+      
+      <li>Assurez-vous d'avoir une connexion Internet stable.</li>
+      <li>Le test est chronométré. Le temps restant sera affiché en haut de chaque question.</li>
+      <li>Durée du test: <strong>{{ testDetails.duree }}</strong></li>
+      <li>Vous ne pouvez pas revenir en arrière pour modifier vos réponses.</li>
+      <li>Essayez de répondre à chaque question le plus précisément possible.</li>
+      <li>Ne tentez pas de tricher. Tout comportement suspect sera détecté et signalé.</li>
+      <li>Si vous rencontrez des problèmes techniques pendant le test ou si vous avez des questions, contactez immédiatement le responsable du recrutement ou le support technique pour obtenir de l'aide.</li>
+    </ul>
+    <div class="d-flex justify-content-center mt-4">
+      <button class="btn btn-primary" (click)="startTest()">Démarrer le test</button>
+    </div>
+  </div>
+  </div>
+</div>

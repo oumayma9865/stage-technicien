@@ -1,0 +1,160 @@
+/* Wrapper */
+.wrapper {
+    display: flex;
+    flex-direction: column; /* Change to column for better mobile responsiveness */
+    height: auto;
+}
+
+/* Content */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    background-color: #edebeb;
+    max-height: auto;
+}
+
+/* Profile Details Container */
+.profile-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 1%; /* Adjusted margin to give some space */
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+/* Header Styling */
+.profile-details-container h4 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Profile Detail Section */
+.profile-detail {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.profile-detail:last-child {
+    border-bottom: none;
+}
+
+/* Labels */
+.profile-detail label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Details */
+.profile-detail span {
+    display: block;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Buttons */
+.profile-detail button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1B75BC;
+    padding: 0;
+    margin-left: 10px;
+}
+
+/* Edit Section */
+.edit {
+    display: flex;
+    align-items: center;
+}
+
+/* Icon */
+.profile-detail button i {
+    font-size: 16px;
+}
+
+/* Button Hover Effect */
+.profile-detail button:hover {
+    color: #0d5ba8;
+}
+
+/* Input Fields */
+.profile-detail input {
+    padding: 8px;
+    border: 1px solid #686767;
+    border-radius: 4px;
+    width: calc(100% - 16px); /* Adjust width to account for padding */
+    margin-top: 5px;
+}
+.password-container {
+    position: relative; /* Nécessaire pour que l'icône d'œil soit positionnée par rapport à ce conteneur */
+    display: flex;
+  }
+  
+  .password-container input[type="password"] {
+    width: 100%;
+    padding-right: 30px; /* Assure un espace pour l'icône d'œil à droite */
+    box-sizing: border-box;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    right: 10px; /* Ajustez selon l'espace souhaité entre l'icône et le bord droit de l'input */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666; /* Couleur de l'icône */
+  }
+  
+  .eye-icon:hover {
+    color: #333; /* Couleur de l'icône au survol */
+  }
+
+/* Back Icon */
+.back-icon {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: -2%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 800px) {
+    .profile-details-container {
+        padding: 20px;
+        margin: 0 10px; /* Add margin on smaller screens */
+    }
+
+    .profile-detail input {
+        width: calc(100% - 16px); /* Ensure inputs are responsive */
+    }
+
+    .back-icon {
+        font-size: 18px; /* Slightly smaller icon on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-details-container h4 {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+
+    .profile-detail input {
+        width: calc(100% - 12px); /* Adjust width on very small screens */
+    }
+
+    .profile-detail button i {
+        font-size: 14px; /* Slightly smaller icons */
+    }
+}

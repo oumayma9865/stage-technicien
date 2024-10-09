@@ -1,0 +1,37 @@
+<nav id="sidebar" >
+  <div class="sidebar-header">
+    <img src="assets/logo.png" alt="Logo de la plateforme" class="logo">
+  </div>
+  <ul class="list-unstyled components">
+    <li>
+      <a [routerLink]="['/adminhome']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+        <i class="fas fa-tasks"></i>
+        <span class="link-text">Tests</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/quizhome']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+        <i class="fas fa-question-circle"></i>
+        <span class="link-text">Quiz</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/candidathome']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+        <i class="fas fa-user"></i>
+        <span class="link-text">Candidats</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/results']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+        <i class="fas fa-chart-bar"></i>
+        <span class="link-text">Résultats</span>
+      </a>
+    </li>
+    <li>
+      <a class="nav-link" (click)="logout()" style="cursor: pointer">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="link-text">Déconnexion</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,70 @@
+<div class="wrapper" >
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="main-content">
+      <app-navbar-admin class="navbar-custom" ></app-navbar-admin>
+      <div class="content">
+        <div class="test-details-container">
+          <h4>Détails du Test</h4>
+          <div class="test-detail">
+            <label>Titre:</label>
+            <ng-container *ngIf="editMode === 'titre'; else staticTextTitre">
+              <input type="text" [(ngModel)]="editedTitre" (keydown.enter)="saveField('titre')">
+              <button (click)="saveField('titre')">Save</button>
+            </ng-container>
+            <ng-template #staticTextTitre>
+              <div class="edit">
+                <span>{{ testDetails.titre }}</span>
+                <button (click)="enterEditMode('titre')"><i class="fas fa-edit"></i></button>
+              </div>
+            </ng-template>
+          </div>
+          <div class="test-detail">
+            <label>Rôle:</label>
+            <span>{{ testDetails.poste }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Expérience Requise:</label>
+            <span>{{ testDetails.niveau }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Compétences:</label>
+            <span>{{ skillsString }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Quizzes:</label>
+            <span>{{ quizzesString }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Durée:</label>
+            <ng-container *ngIf="editMode === 'duree'; else staticTextDuree">
+              <input type="text" [(ngModel)]="editedDuree" (keydown.enter)="saveField('duree')">
+              <button (click)="saveField('duree')">Save</button>
+            </ng-container>
+            <ng-template #staticTextDuree>
+              <div class="edit">
+                <span>{{ testDetails.duree }}</span>
+                <button (click)="enterEditMode('duree')"><i class="fas fa-edit"></i></button>
+              </div>
+            </ng-template>
+          </div>
+          <div class="test-detail">
+            <label>Utilisateurs Invités:</label>
+            <span>{{ usersString }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Sécurité Anti-Triche:</label>
+            <span>{{ securite }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Langue:</label>
+            <span>{{ langue }}</span>
+          </div>
+          <div class="test-detail">
+            <label>Date:</label>
+            <span>{{ testDetails.date | date: 'dd-MM-yyyy' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

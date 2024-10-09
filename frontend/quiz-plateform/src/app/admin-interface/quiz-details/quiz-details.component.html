@@ -1,0 +1,90 @@
+<div class="wrapper" >
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="main-content">
+    <app-navbar-admin class="navbar-custom" ></app-navbar-admin>
+    <div class="content">
+      <div class="quiz-details-container">
+        <h4>Détails du Quiz</h4>
+        <div class="quiz-detail">
+          <label>Titre:</label>
+          <ng-container *ngIf="editMode === 'titre'; else staticTextTitre">
+            <input type="text" [(ngModel)]="editedTitre" (keydown.enter)="saveField('titre')">
+          </ng-container>
+          <ng-template #staticTextTitre>
+            <div class="edit">
+              <span>{{ quizDetails.titre }}</span>
+              <button (click)="enterEditMode('titre')"><i class="fas fa-edit"></i></button>
+            </div>
+          </ng-template>
+        </div>
+        
+        <div class="quiz-detail">
+          <label>Domaine:</label>
+          <span>{{ quizDetails.domaine }}</span>
+        </div>
+        <div class="quiz-detail">
+          <label>Compétence:</label>
+          <span>{{ quizDetails.skill.skill }}</span>
+        </div>
+        
+        <div class="quiz-detail">
+          <label>Score:</label>
+          <ng-container *ngIf="editMode === 'score'; else staticTextScore">
+            <input type="number" [(ngModel)]="editedScore" (keydown.enter)="saveField('score')">
+          </ng-container>
+          <ng-template #staticTextScore>
+            <div class="edit">
+              <span>{{ quizDetails.score }}</span>
+              <button (click)="enterEditMode('score')"><i class="fas fa-edit"></i></button>
+            </div>
+          </ng-template>
+        </div>
+        <div class="quiz-detail">
+          <label>Difficulté:</label>
+          <span>{{ quizDetails.difficulte }}</span>
+        </div>
+        
+        <div class="quiz-detail">
+          <label>Temps:</label>
+          <ng-container *ngIf="editMode === 'temps'; else staticTextTemps">
+            <input type="text" [(ngModel)]="editedTemps" (keydown.enter)="saveField('temps')">
+          </ng-container>
+          <ng-template #staticTextTemps>
+            <div class="edit">
+              <span>{{ quizDetails.temps }}</span>
+              <button (click)="enterEditMode('temps')"><i class="fas fa-edit"></i></button>
+            </div>
+          </ng-template>
+        </div>
+        
+        <div class="questions-section">
+          <h5>Questions</h5>
+          <!-- Existing Questions -->
+          <div *ngFor="let question of questions; let i = index" class="question-item">
+            <span>{{ question.question }}</span>
+            <div class="options">
+              <span *ngFor="let option of optionsMap[question.id]" [ngClass]="{'correct-option': option.correct}">
+                <i *ngIf="option.correct" class="fas fa-check-circle correct-icon"></i>{{ option.texte }}
+              </span>
+            </div>
+            <button (click)="removeQuestion(i)"><i class="fas fa-trash"></i></button>
+          </div>
+          
+          <!-- Add New Question -->
+          <div class="add-question" *ngIf="addingQuestion">
+            <input type="text" [(ngModel)]="newQuestionText" placeholder="Nouvelle question" class="question-input">
+            <div class="new-options">
+              <div *ngFor="let option of newOptions; let i = index" class="option-item">
+                <input type="text" [(ngModel)]="option.text" placeholder="Option" class="option-input">
+                <input type="radio" [checked]="newCorrectOption === i" (change)="newCorrectOption = i"> 
+                <i *ngIf="newCorrectOption === i" class="fas fa-check-circle correct-icon"></i> Correct
+              </div>
+            </div>
+            <button (click)="saveNewQuestion()">Ajouter</button>
+          </div>
+          <button (click)="addQuestion()">Ajouter une question</button>
+        </div>
+    
+    </div>
+  </div>
+        

@@ -1,0 +1,61 @@
+<div class="wrapper" >
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="main-content">
+    <app-navbar-admin class="navbar-custom" ></app-navbar-admin>
+    <div class="content">
+      <div class="search-container">
+        <div class="search">
+          <input type="text" placeholder="Recherche d'un candidat" [(ngModel)]="searchText" (input)="search()">
+          <button class="btn " (click)="search()">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="btn " (click)="reset()">
+            
+          </button>
+        </div>
+      </div>
+      <br><br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" >#</th>
+              <th scope="col">Candidats</th>
+              <th scope="col" >Email</th>
+              <th scope="col" >CV</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let candidate of filteredCandidates; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ candidate.username }}</td>
+              <td>{{ candidate.email }}</td>
+              <td>
+                <a *ngIf="candidate.cv" [href]="getCVUrl(candidate.cv)" target="_blank">
+                  <button class="btn btn-success btn-sm">
+                    <i class="fas fa-download"></i> Télécharger CV
+                  </button>
+                </a>
+              </td>
+              <td>
+                <div class="actions">
+                  <button class="btn btn-secondary btn-sm" (click)="toggleLock(candidate)">
+                    <i class="fas" [ngClass]="candidate.locked ? 'fa-lock' : 'fa-unlock'"></i>
+                    {{ candidate.locked ? 'Débloquer' : 'Bloquer' }}
+                  </button>
+                  <div class="trash" >
+                   
+                    <ul><button class="dropdown-item"  (click)="deleteUser(candidate.id)">
+                      <i class="fas fa-trash-alt"></i> 
+                    </button>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+    </div>
+  </div>
